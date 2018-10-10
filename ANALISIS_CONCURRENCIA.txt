@@ -1,0 +1,13 @@
+Qué condiciones de carrera se podrían presentar?
+
+	- Que se modifique un plano simultaneamente por dos usuarios diferentes.
+	- Que se este agregando un nuevo plano y al mismo tiempo se este consultando ese plano.
+
+Cuales son las respectivas regiones críticas?
+
+	- Las variables de la persistencia donde se almacenan los planos.
+
+Solución: 
+
+	- Establecer la variable blueprints en la clase InMemoryBlueprintPersistence como una variable concurrente.
+	- Modificar el método de agregar un nuevo plano para que use métodos atómicos.
