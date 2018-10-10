@@ -10,7 +10,6 @@ import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -48,13 +47,10 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     
     @Override
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException {
-        /*if (blueprints.containsKey(new Tuple<>(bp.getAuthor(),bp.getName()))){
+        if (blueprints.containsKey(new Tuple<>(bp.getAuthor(),bp.getName()))){
             throw new BlueprintPersistenceException("The given blueprint already exists: "+bp);
         }
-        else{
-            blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);*/
-            blueprints.putIfAbsent(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
-        //}        
+        blueprints.putIfAbsent(new Tuple<>(bp.getAuthor(),bp.getName()), bp);   
     }
 
     @Override

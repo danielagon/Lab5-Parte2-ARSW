@@ -71,11 +71,18 @@ public class BlueprintsServices {
         return bpp.getBlueprintByAuthor(author); 
     }
     
+    /**
+     * 
+     * @param author blueprint's author
+     * @param name blueprint's name
+     * @param bp blueprint
+     * @throws BlueprintPersistenceException if the blueprint was not modified
+     */
     public void setBlueprintByAuthorAndBpname(String author, String name, Blueprint bp) throws BlueprintPersistenceException{
         if (author.equals(bp.getAuthor())){
             bpp.setBlueprintByAuthorAndBpname(author, name, bp);
         }else{
-            throw new BlueprintPersistenceException("El autor no es mismo ingresado en el plano");
+            throw new BlueprintPersistenceException("The author is not himself entered in the blueprint");
         }
     }
 }
